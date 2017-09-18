@@ -1,0 +1,20 @@
+[{
+	"name": "${deploy_tag}_${service_name}_${version}",
+	"command": ["node", "app.js"],
+	"image": "${docker_image}:${docker_tag}",
+	"essential": true,
+	"cpu": ${cpu},
+	"memoryReservation": 512,
+	"environment": [
+		{
+			"name": "REDIS_HOST",
+			"value": "${redis_host}"
+		}
+	],
+	"portMappings": [
+		{
+			"containerPort": ${port},
+			"protocol": "tcp"
+		}
+	]
+}]
